@@ -1,0 +1,265 @@
+.alert {
+  display: inline-flex;
+  gap: 3rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2.5rem;
+  border-radius: 12px;
+  border: 2px solid var(--neon-primary);
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.alert::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, 
+    transparent 30%,
+    rgba(0, 255, 136, 0.1) 50%,
+    transparent 70%
+  );
+  animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.alert,
+.alert > .alert__message {
+  background: linear-gradient(45deg, 
+    rgba(0, 255, 136, 0.1), 
+    rgba(0, 204, 255, 0.1)
+  );
+  color: var(--neon-primary);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.alert.alert--error,
+.alert.alert--error > .alert__message {
+  background: linear-gradient(45deg, 
+    rgba(255, 0, 102, 0.1), 
+    rgba(255, 0, 204, 0.1)
+  );
+  color: var(--neon-danger);
+  border-color: var(--neon-danger);
+  box-shadow: 0 0 20px rgba(255, 0, 102, 0.3);
+}
+
+.alert.alert--error::before {
+  background: linear-gradient(45deg, 
+    transparent 30%,
+    rgba(255, 0, 102, 0.1) 50%,
+    transparent 70%
+  );
+}
+
+.alert.alert--success,
+.alert.alert--success > .alert__message {
+  background: linear-gradient(45deg, 
+    rgba(0, 255, 136, 0.15), 
+    rgba(0, 204, 255, 0.15)
+  );
+  color: var(--neon-primary);
+  border-color: var(--neon-primary);
+  box-shadow: 0 0 25px rgba(0, 255, 136, 0.4);
+}
+
+.alert.alert--success::before {
+  background: linear-gradient(45deg, 
+    transparent 30%,
+    rgba(0, 255, 136, 0.15) 50%,
+    transparent 70%
+  );
+}
+
+.alert > .alert__close {
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  outline: transparent;
+  font-size: 2rem;
+  color: var(--neon-primary);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.alert > .alert__close:hover {
+  background: rgba(0, 255, 136, 0.2);
+  color: var(--neon-primary);
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+}
+
+.alert.alert--error > .alert__close {
+  color: var(--neon-danger);
+}
+
+.alert.alert--error > .alert__close:hover {
+  background: rgba(255, 0, 102, 0.2);
+  color: var(--neon-danger);
+  box-shadow: 0 0 15px rgba(255, 0, 102, 0.4);
+}
+
+/* Light theme adjustments */
+[data-theme="light"] .alert {
+  border: 2px solid var(--neon-primary);
+  box-shadow: 0 0 15px rgba(0, 122, 61, 0.2);
+}
+
+[data-theme="light"] .alert,
+[data-theme="light"] .alert > .alert__message {
+  background: linear-gradient(45deg, 
+    rgba(0, 122, 61, 0.08), 
+    rgba(0, 102, 204, 0.08)
+  );
+  color: var(--neon-primary);
+}
+
+[data-theme="light"] .alert.alert--error,
+[data-theme="light"] .alert.alert--error > .alert__message {
+  background: linear-gradient(45deg, 
+    rgba(204, 0, 51, 0.08), 
+    rgba(204, 0, 102, 0.08)
+  );
+  color: var(--neon-danger);
+  border-color: var(--neon-danger);
+  box-shadow: 0 0 15px rgba(204, 0, 51, 0.2);
+}
+
+[data-theme="light"] .alert.alert--success,
+[data-theme="light"] .alert.alert--success > .alert__message {
+  background: linear-gradient(45deg, 
+    rgba(0, 122, 61, 0.12), 
+    rgba(0, 102, 204, 0.12)
+  );
+  color: var(--neon-primary);
+  border-color: var(--neon-primary);
+  box-shadow: 0 0 18px rgba(0, 122, 61, 0.25);
+}
+
+[data-theme="light"] .alert > .alert__close:hover {
+  background: rgba(0, 122, 61, 0.15);
+  box-shadow: 0 0 10px rgba(0, 122, 61, 0.3);
+}
+
+[data-theme="light"] .alert.alert--error > .alert__close:hover {
+  background: rgba(204, 0, 51, 0.15);
+  box-shadow: 0 0 10px rgba(204, 0, 51, 0.3);
+}
+
+/* Animation for alert appearance */
+@keyframes alertSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.alert {
+  animation: alertSlideIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Different alert types with icons */
+.alert__icon {
+  font-size: 1.8rem;
+  margin-right: 1rem;
+}
+
+.alert.alert--error .alert__icon {
+  color: var(--neon-danger);
+}
+
+.alert.alert--success .alert__icon {
+  color: var(--neon-primary);
+}
+
+/* Alert variants */
+.alert.alert--info {
+  background: linear-gradient(45deg, 
+    rgba(0, 153, 255, 0.1), 
+    rgba(0, 204, 255, 0.1)
+  );
+  color: var(--neon-secondary);
+  border-color: var(--neon-secondary);
+  box-shadow: 0 0 20px rgba(0, 204, 255, 0.3);
+}
+
+[data-theme="light"] .alert.alert--info {
+  background: linear-gradient(45deg, 
+    rgba(0, 102, 204, 0.08), 
+    rgba(0, 153, 204, 0.08)
+  );
+  color: var(--neon-secondary);
+  border-color: var(--neon-secondary);
+  box-shadow: 0 0 15px rgba(0, 102, 204, 0.2);
+}
+
+.alert.alert--warning {
+  background: linear-gradient(45deg, 
+    rgba(255, 170, 0, 0.1), 
+    rgba(255, 221, 0, 0.1)
+  );
+  color: var(--neon-warning);
+  border-color: var(--neon-warning);
+  box-shadow: 0 0 20px rgba(255, 170, 0, 0.3);
+}
+
+[data-theme="light"] .alert.alert--warning {
+  background: linear-gradient(45deg, 
+    rgba(204, 119, 0, 0.08), 
+    rgba(204, 170, 0, 0.08)
+  );
+  color: var(--neon-warning);
+  border-color: var(--neon-warning);
+  box-shadow: 0 0 15px rgba(204, 119, 0, 0.2);
+}
+
+/* Dismiss animation */
+@keyframes alertDismiss {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+}
+
+.alert.dismissing {
+  animation: alertDismiss 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .alert {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+  }
+  
+  .alert__message {
+    text-align: center;
+  }
+}

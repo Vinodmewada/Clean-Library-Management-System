@@ -1,0 +1,249 @@
+/* Custom styles moved from inline to external CSS, using green and other colors */
+
+/* Tag styles */
+.tag {
+    display: inline-flex;
+    align-items: center;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    border-radius: 3rem;
+    padding: 0.3rem 0.4rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #4CAF50;
+}
+
+/* Avatar styles */
+.avatar {
+    border-radius: 50%;
+    border: 2px solid #81C784;
+    object-fit: cover;
+}
+
+.avatar--xl {
+    height: 20rem;
+    width: 20rem;
+}
+
+.avatar--lg {
+    height: 15rem;
+    width: 15rem;
+}
+
+.avatar--md {
+    height: 7rem;
+    width: 7rem;
+}
+
+.avatar--sm {
+    height: 3rem;
+    width: 3rem;
+}
+
+/* Comment styles */
+.commentList {
+    margin: 3rem 0;
+}
+
+.comment {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.comment:not(:last-child) {
+    margin-bottom: 2rem;
+}
+
+.comment__author {
+    font-size: 1.2rem;
+}
+
+.comment__info {
+    font-size: 0.9rem;
+}
+
+/* Stars styles */
+.stars {
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+.star {
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0.3rem;
+    width: 5rem;
+    -webkit-text-stroke-width: 0.1rem;
+    -webkit-text-stroke-color: #4CAF50;
+}
+
+.star.checked {
+    color: #4a90e2;
+}
+
+/* Nav-ist hover */
+.nav-ist:hover {
+    border-bottom-color: #4CAF50;
+    color: #4CAF50;
+}
+
+/* Mybtn styles */
+.mybtn {
+    background: #81C784;
+    border: 2px solid transparent;
+    border-radius: 100px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: normal;
+    transition: all 0.3s;
+    padding: 10px 20px;
+}
+
+.mybtn:hover {
+    background: #4CAF50;
+    color: #ffffff;
+}
+
+/* Page-link styles */
+.page-link {
+    border: 0;
+    border-radius: 10px;
+    color: #4a90e2;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.page-link:hover,
+.page-item:first-child .page-link:hover,
+.page-item:last-child .page-link:hover {
+    background-color: #4a90e2;
+    color: #ffffff;
+}
+
+.page-item:first-child .page-link {
+    margin-right: 5px;
+}
+
+.page-item:first-child .page-link,
+.page-item:last-child .page-link {
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.page-item.active .page-link,
+.page-link.active {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+    color: #ffffff !important;
+}
+
+/* Content-box */
+.content-box {
+    width: 95%;
+    max-width: 85rem;
+    margin: 0 auto;
+}
+
+/* Inbox styles */
+.inbox {
+    height: 90vh;
+}
+
+.inbox__title,
+.inbox__title span {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #4a90e2;
+    text-transform: uppercase;
+    text-align: left;
+    margin-bottom: 3rem;
+}
+
+.inbox__title span {
+    color: #81C784;
+}
+
+.messages {
+    list-style: none;
+    background: #ffffff;
+    padding: 0.5rem 3rem;
+    border: 2px solid #b8d4f0;
+    border-radius: 0.7rem;
+}
+
+.message {
+    padding: 2.5rem 0;
+}
+
+.message > a span {
+    font-size: 1.45rem;
+    font-weight: 500;
+}
+
+.message.message--unread a span {
+    font-weight: 700;
+    color: #4a90e2;
+}
+
+.message:not(:last-child) {
+    border-bottom: 2px solid #81C784;
+}
+
+.message > a {
+    display: flex;
+    gap: 1rem;
+}
+
+.message__author,
+.message__date {
+    flex-basis: 25%;
+}
+
+.message__subject {
+    flex-basis: 50%;
+}
+
+.message__date {
+    text-align: right;
+}
+
+/* Footer logo */
+.footer-logo {
+    height: 60px;
+    width: auto;
+    margin-top: auto;
+}
+
+/* Footer title */
+.footer-title {
+    margin-top: 0.3rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+/* Navbar logo */
+.navbar-logo {
+    height: 60px;
+    width: auto;
+    margin-top: auto;
+    margin-right: 0.5rem;
+}
+
+/* Navbar title */
+.navbar-title {
+    margin-top: 0.3rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+}
